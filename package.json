@@ -8,10 +8,11 @@
     "url": "git+https://github.com/naivehhr/aran-koa-demo.git"
   },
   "scripts": {
-    "start": "export BABEL_ENV=client && node client/server.js",
+    "start": "export BABEL_ENV=client && npm run build && node client/server.js",
     "build": "export BABEL_ENV=client && webpack --config webpack.config.dev.js",
     "ssr": "export BABEL_ENV=server && npm run bssr &&node server/index.js",
-    "bssr": "export BABEL_ENV=serverb && webpack --config webpack.config.server.js"
+    "bssr": "export BABEL_ENV=serverb && webpack --config webpack.config.server.js",
+    "clear": "rimraf dist"
   },
   "dependencies": {
     "koa": "^2.6.2",
@@ -37,6 +38,7 @@
     "jest": "^23.6.0",
     "koa-webpack-dev-middleware": "^2.0.2",
     "koa-webpack-hot-middleware": "^1.0.3",
+    "rimraf": "^2.6.2",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },

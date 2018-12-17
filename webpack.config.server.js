@@ -5,9 +5,9 @@ module.exports = {
   target: "node",
   entry: [path.join(__dirname, "./server/app.js")],
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "build"),
     publicPath: "/static/",
-    filename: "ssr.js",
+    filename: "[name].[hash:8].js",
     chunkFilename: "[name].[hash:8].chunk.js"
   },
   //避免把node_modules里的库都打包进去，此ssr js会直接运行在node端，
