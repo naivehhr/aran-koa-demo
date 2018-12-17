@@ -1,31 +1,32 @@
-const Koa = require("koa");
-const Router = require("koa-router");
-const staticServe = require("koa-static");
-const webpack = require("webpack");
-const webpackDevMiddleware = require("koa-webpack-dev-middleware");
-const webpackHotMiddleware = require("koa-webpack-hot-middleware");
-const config = require("./webpack.config.dev.js");
-const fs = require("fs");
+const Koa = require("koa")
+const Router = require("koa-router")
+const staticServe = require("koa-static")
+const webpack = require("webpack")
+const webpackDevMiddleware = require("koa-webpack-dev-middleware")
+const webpackHotMiddleware = require("koa-webpack-hot-middleware")
+const config = require("../webpack.config.dev.js")
+const fs = require("fs")
 
-const compiler = webpack(config);
-const path = require("path");
+const compiler = webpack(config)
+const path = require("path")
 // const staticPath = "./dist"
 
 // 这个静态文件呀， 路径
 // https://github.com/chenshenhai/koa2-note/tree/master/demo/static-use-middleware/static?1544775482639
 // const staticPath = "./dist"
-const staticPath = "/";
+const staticPath = "/"
 
-const app = new Koa();
-const router = new Router();
+const app = new Koa()
+const router = new Router()
 
+// 找个会影响景台服务器
 app.use(
   webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath
   })
-);
-app.use(webpackHotMiddleware(compiler));
+)
+app.use(webpackHotMiddleware(compiler))
 
 // // logger
 // app.use(async (ctx, next) => {
@@ -52,26 +53,29 @@ app.use(webpackHotMiddleware(compiler));
 // })
 
 router.get("*", async ctx => {
-  console.log(ctx.request.url);
+  console.log(ctx.request.url)
   if (ctx.request.url.indexOf(".js") === -1) {
     const htmlFile = await new Promise(function(resolve, reject) {
-      fs.readFile("./dist/index.html", (err, data) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(data);
+      fs.readFile(
+        path.resolve(__dirname, "../dist/index.html"),
+        (err, data) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(data)
+          }
         }
-      });
-    });
-    ctx.type = "html";
-    ctx.body = htmlFile;
+      )
+    })
+    ctx.type = "html"
+    ctx.body = htmlFile
   }
-});
+})
 
-app.use(router.routes());
+app.use(router.routes())
 
-app.use(staticServe(path.join(__dirname, staticPath)));
+app.use(staticServe(path.join(__dirname, staticPath)))
 
 app.listen(3000, () => {
-  console.log("server on 3000");
-});
+  console.log("server on 3000")
+})

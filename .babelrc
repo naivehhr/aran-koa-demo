@@ -1,4 +1,34 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": []
+  "env": {
+    "client": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"], //这为啥要写成这样
+      "plugins": []
+    },
+    "server": {
+      "presets": [
+        "react",
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    },
+    "serverb": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "@babel/preset-react"
+      ]
+    }
+  }
 }

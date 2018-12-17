@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  // mode: "development", // 这个是干啥的
   devtool: "cheap-module-eval-source-map",
   entry: [
     "webpack-hot-middleware/client",
@@ -18,9 +19,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       //根据index.ejs 生成index.html文件
-      title: "SSR喽1111",
+      title: "react page",
       inject: true,
-      filename: "index123.html",
+      filename: "index.html",
       template: path.join(__dirname, "./index.ejs")
     })
   ],
