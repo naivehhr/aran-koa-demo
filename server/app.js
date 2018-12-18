@@ -10,7 +10,7 @@ const preloadedState = window.__PRELOADED_STATE__
 
 // 使用初始 state 创建 Redux store
 const store = createStore(reducers, preloadedState)
-
+store.subscribe(() => console.log('subscribe', store.getState())) // 这个写在服务端不管用诶
 // ReactDOM.render(<Home isMobile={true} />, document.getElementById("root"))
 hydrate(
   <Provider store={store}>

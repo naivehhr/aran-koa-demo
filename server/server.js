@@ -22,7 +22,7 @@ const router = new Router()
 const initialState = { isMobile: true }
 
 const store = createStore(reducers)
-store.subscribe(() => console.log(store.getState()))
+// store.subscribe(() => console.log('subscribe', store.getState())) // 不管用
 const preloadedState = store.getState()
 
 const html = ReactDOMServer.renderToString(
