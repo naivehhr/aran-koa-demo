@@ -4,6 +4,7 @@
 server端渲染后构建的js怎么替换呢？
 服务端渲染的时机是怎样的？
 按需加载的机制和效果？
+不能热更新了。。。
 
 * 搭建ReactDevServer
   * 主要是koa的熟悉，和server端的基本配置
@@ -25,3 +26,6 @@ server端渲染后构建的js怎么替换呢？
   * fetch balabala
 
 * 参考heifetz结构更清晰
+
+
+* Make 的使用

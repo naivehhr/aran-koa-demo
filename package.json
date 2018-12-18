@@ -8,11 +8,12 @@
     "url": "git+https://github.com/naivehhr/aran-koa-demo.git"
   },
   "scripts": {
-    "start": "export BABEL_ENV=client && npm run build && node client/server.js",
+    "start": "export BABEL_ENV=client && npm run clear && npm run build && node client/server.js",
     "build": "export BABEL_ENV=client && webpack --config webpack.config.dev.js",
-    "ssr": "export BABEL_ENV=server && npm run bssr &&node server/index.js",
+    "ssr": "export BABEL_ENV=server && npm run clear-ssr && npm run bssr &&node server/index.js",
     "bssr": "export BABEL_ENV=serverb && webpack --config webpack.config.server.js",
-    "clear": "rimraf dist"
+    "clear": "rimraf dist",
+    "clear-ssr": "rimraf build"
   },
   "dependencies": {
     "koa": "^2.6.2",
@@ -20,7 +21,9 @@
     "koa-static": "^5.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

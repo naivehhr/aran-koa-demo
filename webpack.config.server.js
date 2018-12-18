@@ -2,6 +2,7 @@
 const path = require("path")
 console.log(path.join(__dirname, "server"))
 module.exports = {
+  mode: 'development',
   target: "node",
   entry: [path.join(__dirname, "./server/app.js")],
   output: {
