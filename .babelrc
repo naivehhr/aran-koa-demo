@@ -2,7 +2,9 @@
   "env": {
     "client": {
       "presets": ["@babel/preset-env", "@babel/preset-react"], //这为啥要写成这样
-      "plugins": []
+      "plugins": [
+        "@babel/plugin-syntax-dynamic-import"
+      ]
     },
     "server": {
       "presets": [
