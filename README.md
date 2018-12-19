@@ -29,3 +29,9 @@ server端渲染后构建的js怎么替换呢？
 
 
 * Make 的使用
+
+
+
+### 备注
+
+* 尝试了两种WebpackDevServer配置，还是使用webpack-dev-server的好
