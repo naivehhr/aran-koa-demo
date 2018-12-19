@@ -27,8 +27,14 @@ server端渲染后构建的js怎么替换呢？
 
 * 参考heifetz结构更清晰
 
+* 加快构建速度
+
+  * webpack.DllPlugin https://www.cnblogs.com/lvdabao/p/5944420.html
+  * 多入口的作用
 
 * Make 的使用
+
+* 终极目标 大型CMS搭建
 
 
 

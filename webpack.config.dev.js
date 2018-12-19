@@ -1,14 +1,14 @@
-const path = require("path");
-const webpack = require("webpack");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const path = require("path")
+const webpack = require("webpack")
+const HTMLWebpackPlugin = require("html-webpack-plugin")
 
+// 仅为client打包所用了，结合下面的webpack.config.js
 module.exports = {
   // mode: "development", // 这个是干啥的
   devtool: "cheap-module-eval-source-map",
-  entry: [
-    "webpack-hot-middleware/client",
-    path.join(__dirname, "./src/app.js")
-  ],
+  entry: {
+    app: path.join(__dirname, "./src/app.js")
+  },
   output: {
     path: path.join(__dirname, "dist"),
     publicPath: "/",
@@ -35,4 +35,4 @@ module.exports = {
       }
     ]
   }
-};
+}

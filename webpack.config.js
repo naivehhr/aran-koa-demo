@@ -3,11 +3,12 @@ const webpack = require("webpack")
 const HTMLWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  // mode: "development", // 这个是干啥的
+  mode: "development", // 这个是干啥的
   devtool: "cheap-module-eval-source-map",
-  entry: [
-    path.join(__dirname, "./src/app.js")
-  ],
+  entry: {
+    app: path.join(__dirname, "./src/app.js"),
+    hello: path.join(__dirname, "./src/Hello.js")
+  },
   output: {
     path: path.join(__dirname, "dist"),
     publicPath: "/",
