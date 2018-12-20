@@ -17,9 +17,11 @@ server端渲染后构建的js怎么替换呢？
 * 搭建API Mock Server
 
 * 按需加载
-  * Loader
+
+  * [x] Loader  尝试了两种
   * webpack 分包
   * 要理解原理
+  * SSR不需要异步加载
 
 * 可行性服务
   * helmet 
